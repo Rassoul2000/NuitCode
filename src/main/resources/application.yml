@@ -1,0 +1,29 @@
+server:
+  port: 9090
+
+#spring:
+#  h2:
+#    console:
+#      enabled: true
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/nuit_info?createDatabaseIfNotExist=true
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+keycloak:
+  realm: nuitInfo
+  auth-server-url: http://localhost:8080/auth
+  resource: springboot-keycloak
+  public-client: true
+  bearer-only: true
